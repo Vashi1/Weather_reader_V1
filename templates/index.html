@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Today's Weather</title>
+    </head>
+
+    <body>
+    <script>
+            var x = document.getElementById("demo");
+            function getlocation(){
+                if (navigator.geolocation){
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                }
+            }
+            function showPosition(){
+                <!--document.getElementsByName("lat").value = position.coords.latitude
+                document.getElementsByName("long").value = position.coords.longitude-->
+                x.innerHTML="Latitude: " + position.coords.latitude +
+    "<br>Longitude: " + position.coords.longitude;
+            }
+        </script>
+        <form>
+            <label for="latitude" >Latitude:</label>
+            <input type="number" id="lat" name="lat" value=><br>
+            <br>
+             <label for="longitude" >Longitude:</label>
+            <input type="number" id="long" name="long"><br>
+            <input type="submit" value="Submit">
+            <button onclick="getlocation()">Get location</button>
+            <p id="demo"></p>
+
+        </form>
+
+    </body>
+</html>
